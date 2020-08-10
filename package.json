@@ -11,6 +11,7 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
+    "@nuxtjs/prismic": "^1.2.3",
     "nuxt": "^2.14.0",
     "nuxt-buefy": "^0.3.31"
   },

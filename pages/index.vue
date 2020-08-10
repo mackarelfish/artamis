@@ -21,18 +21,26 @@
       <card title="Lightweight" icon="arrange-bring-to-front"
         >No other internal dependency</card
       >
+      <div>{{ productData.product_name[0].text }}</div>
     </div>
   </section>
 </template>
 
 <script>
-import Card from '~/components/Card'
+import Card from '~/components/Card.vue'
 
 export default {
   name: 'HomePage',
-
   components: {
     Card,
+  },
+  async asyncData({ $prismic, error }) {
+    try {
+      const data = (await $prismic.api.getSingle('product')).data
+      return { productData: data }
+    } catch (e) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
   },
 }
 </script>

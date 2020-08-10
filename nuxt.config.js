@@ -53,7 +53,13 @@ export default {
   modules: [
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
+    '@nuxtjs/prismic',
   ],
+  prismic: {
+    endpoint: 'https://artamis.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver',
+    htmlSerializer: '@/plugins/html-serializer',
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
